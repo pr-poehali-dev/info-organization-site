@@ -3,10 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("main");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleNavClick = (section: string) => {
+    setActiveSection(section);
+    setIsMenuOpen(false);
+  };
 
   const programs = [
     {
@@ -76,6 +83,22 @@ const Index = () => {
               <button onClick={() => setActiveSection("documents")} className="hover:opacity-80 transition-opacity">Документы</button>
               <button onClick={() => setActiveSection("contacts")} className="hover:opacity-80 transition-opacity">Контакты</button>
             </nav>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon" className="text-primary-foreground">
+                  <Icon name="Menu" size={24} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] bg-primary text-primary-foreground border-primary">
+                <nav className="flex flex-col gap-6 mt-8">
+                  <button onClick={() => handleNavClick("main")} className="text-left text-lg font-semibold hover:opacity-80 transition-opacity">Главная</button>
+                  <button onClick={() => handleNavClick("programs")} className="text-left text-lg font-semibold hover:opacity-80 transition-opacity">Программы обучения</button>
+                  <button onClick={() => handleNavClick("certification")} className="text-left text-lg font-semibold hover:opacity-80 transition-opacity">Сертификация</button>
+                  <button onClick={() => handleNavClick("documents")} className="text-left text-lg font-semibold hover:opacity-80 transition-opacity">Документы</button>
+                  <button onClick={() => handleNavClick("contacts")} className="text-left text-lg font-semibold hover:opacity-80 transition-opacity">Контакты</button>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>
