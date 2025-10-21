@@ -105,7 +105,7 @@ const Index = () => {
 
       {activeSection === "main" && (
         <>
-          <section className="relative bg-gradient-to-br from-primary to-secondary text-primary-foreground py-24">
+          <section className="relative bg-gradient-to-br from-primary to-secondary text-primary-foreground py-24 animate-fade-in">
             <div className="container mx-auto px-4">
               <div className="max-w-3xl">
                 <h2 className="text-5xl font-bold mb-6">Профессиональное обучение специалистов морской отрасли</h2>
@@ -130,10 +130,10 @@ const Index = () => {
 
           <section className="py-16 bg-muted">
             <div className="container mx-auto px-4">
-              <h3 className="text-3xl font-bold text-center mb-12">Ключевые программы</h3>
+              <h3 className="text-3xl font-bold text-center mb-12 animate-fade-in">Ключевые программы</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {programs.map((program, idx) => (
-                  <Card key={idx} className="p-6 hover:shadow-lg transition-shadow">
+                  <Card key={idx} className="p-6 hover:shadow-lg transition-all hover:scale-105 animate-scale-in" style={{ animationDelay: `${idx * 0.1}s` }}>
                     <div className="flex flex-col items-center text-center">
                       <div className="mb-4 p-4 bg-primary/10 rounded-full">
                         <Icon name={program.icon} size={40} className="text-primary" />
@@ -148,7 +148,7 @@ const Index = () => {
             </div>
           </section>
 
-          <section className="py-16">
+          <section className="py-16 animate-fade-in">
             <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
@@ -179,7 +179,7 @@ const Index = () => {
       )}
 
       {activeSection === "programs" && (
-        <section className="py-16">
+        <section className="py-16 animate-fade-in">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-4">Программы обучения</h2>
             <p className="text-muted-foreground mb-12 max-w-3xl">
@@ -188,7 +188,7 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               {programs.map((program, idx) => (
-                <Card key={idx} className="p-8">
+                <Card key={idx} className="p-8 animate-slide-in-right hover:shadow-xl transition-shadow" style={{ animationDelay: `${idx * 0.15}s` }}>
                   <div className="flex gap-6">
                     <div className="flex-shrink-0">
                       <div className="p-4 bg-primary/10 rounded-lg">
@@ -212,7 +212,7 @@ const Index = () => {
       )}
 
       {activeSection === "certification" && (
-        <section className="py-16">
+        <section className="py-16 animate-fade-in">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-4">Сертификация</h2>
             <p className="text-muted-foreground mb-12 max-w-3xl">
@@ -221,7 +221,7 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               {certifications.map((cert, idx) => (
-                <Card key={idx} className="p-6">
+                <Card key={idx} className="p-6 animate-scale-in hover:shadow-lg transition-shadow" style={{ animationDelay: `${idx * 0.1}s` }}>
                   <div className="mb-4">
                     <Icon name="FileCheck" size={40} className="text-primary" />
                   </div>
@@ -231,7 +231,7 @@ const Index = () => {
                 </Card>
               ))}
             </div>
-            <div className="mt-12 p-8 bg-muted rounded-lg">
+            <div className="mt-12 p-8 bg-muted rounded-lg animate-fade-in">
               <h3 className="text-2xl font-bold mb-4">Требования для сертификации</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -257,7 +257,7 @@ const Index = () => {
       )}
 
       {activeSection === "documents" && (
-        <section className="py-16">
+        <section className="py-16 animate-fade-in">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-4">Документы и лицензии</h2>
             <p className="text-muted-foreground mb-12 max-w-3xl">
@@ -265,7 +265,7 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {documents.map((doc, idx) => (
-                <Card key={idx} className="p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                <Card key={idx} className="p-6 hover:shadow-lg transition-all cursor-pointer hover:scale-102 animate-slide-in-right" style={{ animationDelay: `${idx * 0.08}s` }}>
                   <div className="flex items-center gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <Icon name="FileText" size={32} className="text-primary" />
@@ -284,7 +284,7 @@ const Index = () => {
       )}
 
       {activeSection === "contacts" && (
-        <section className="py-16">
+        <section className="py-16 animate-fade-in">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-4">Контакты</h2>
             <p className="text-muted-foreground mb-12">Свяжитесь с нами для получения консультации</p>
